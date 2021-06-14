@@ -1,0 +1,27 @@
+
+//S M Asifur Rahman
+void setup() {
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+
+}
+
+char c;
+String voice;
+void loop() {
+  if (Serial.available()>0){
+    voice = "";
+    delay(2);
+    voice = Serial.readString();
+    delay(2);
+    Serial.println(voice);
+    
+  }
+  if (voice=="turn on"){
+    digitalWrite(13,HIGH);
+    
+  }else if (voice=="turn off"){
+    digitalWrite(13,LOW);
+    
+  }
+}
